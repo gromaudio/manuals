@@ -1,0 +1,7 @@
+1. Activate profiles in packages/apps/Bluetooth/res/values/config.xml:
+      <resources>
+          <bool name="profile_supported_a2dp_sink">true</bool>
+          <bool name="profile_supported_avrcp_controller">true</bool>
+          <bool name="profile_supported_hfpclient">true</bool>
+      </resources>
+
