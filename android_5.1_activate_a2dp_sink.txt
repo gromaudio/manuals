@@ -5,3 +5,25 @@
           <bool name="profile_supported_hfpclient">true</bool>
       </resources>
 
+2. external/bluetooth/bluedroid should be build with
+      #define BTA_AV_SINK_INCLUDED TRUE
+
+3. Add to board's audio policy
+      a2dp {
+      outputs {
+        a2dp {
+          sampling_rates 44100
+          channel_masks AUDIO_CHANNEL_OUT_STEREO
+          formats AUDIO_FORMAT_PCM_16_BIT
+          devices AUDIO_DEVICE_OUT_ALL_A2DP
+        }
+      }
+      inputs {
+        a2dp {
+          sampling_rates 44100|48000
+          channel_masks AUDIO_CHANNEL_IN_MONO|AUDIO_CHANNEL_IN_STEREO
+          formats AUDIO_FORMAT_PCM_16_BIT
+          devices AUDIO_DEVICE_IN_BLUETOOTH_A2DP
+        }
+      }
+    }
